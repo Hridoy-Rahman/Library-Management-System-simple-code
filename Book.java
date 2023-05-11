@@ -24,6 +24,8 @@ public class Book {
         System.out.println("Enter Quantity of Books:");
         this.bookQuantity = input.nextInt();
         bookQuantityCopy = this.bookQuantity;
+
+        System.out.println(" Book added successfully");
     }
 
     public int getSerialNo() {
@@ -42,15 +44,15 @@ public class Book {
         return bookQuantity;
     }
 
-    public int getbookQuantityCopy() {
+    public int getBookQuantityCopy() {
         return bookQuantityCopy;
     }
 
-    public void setbookQuantity(int bookQuantity) {
+    public void setBookQuantity(int bookQuantity) {
         this.bookQuantity = bookQuantity;
     }
 
-    public void setbookQuantityCopy(int bookQuantityCopy) {
+    public void setBookQuantityCopy(int bookQuantityCopy) {
         this.bookQuantityCopy = bookQuantityCopy;
     }
 
@@ -65,7 +67,7 @@ public class Book {
         System.out.println("Book Name: " + book.getBookName());
         System.out.println("Author Name: " + book.getAuthorName());
         System.out.println("Book Quantity: " + book.getbookQuantity());
-        System.out.println("Book Quantity Copy: " + book.getbookQuantityCopy());
+        System.out.println("Book Quantity Copy: " + book.getBookQuantityCopy());
 
         book.closeScanner();
     }

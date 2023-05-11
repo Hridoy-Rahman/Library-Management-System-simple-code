@@ -24,7 +24,7 @@ public class Library {
                     books.addBook(book);
                     break;
                 case 2:
-                    books.upgradebookQuantity();
+                    books.upgradeBookQuantity();
                     break;
                 case 3:
                     System.out.println("Press 1 to Search with Book Serial No.");
@@ -59,7 +59,7 @@ public class Library {
                     students.checkInBook(books);
                     break;
                 default:
-                    System.out.println("Enter a value between 0 and 8.");
+                    System.out.println("Program Stop. Enter a value between 0 and 8.");
                     break;
             }
         } while (choice != 0);

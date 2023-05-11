@@ -15,8 +15,7 @@ public class Books {
 		input = new Scanner(System.in);
 	}
 
-	// Method 1
-	// To compare books
+	
 	public int compareBookObjects(Book b1, Book b2) {
 		// If Book name matches
 		if (b1.getBookName().equalsIgnoreCase(b2.getBookName())) {
@@ -67,7 +66,7 @@ public class Books {
 						theBooks[i].getSerialNo() + "\t\t"
 								+ theBooks[i].getBookName() + "\t\t"
 								+ theBooks[i].getAuthorName() + "\t\t"
-								+ theBooks[i].getbookQuantityCopy() + "\t\t"
+								+ theBooks[i].getBookQuantityCopy() + "\t\t"
 								+ theBooks[i].getbookQuantity());
 				flag++;
 				return;
@@ -100,7 +99,7 @@ public class Books {
 								+ theBooks[i].getBookName() + "\t\t"
 
 								+ theBooks[i].getAuthorName() + "\t\t"
-								+ theBooks[i].getbookQuantityCopy() + "\t\t"
+								+ theBooks[i].getBookQuantityCopy() + "\t\t"
 								+ theBooks[i].getbookQuantity());
 				flag++;
 			}
@@ -122,14 +121,14 @@ public class Books {
 					theBooks[i].getSerialNo() + "\t\t"
 							+ theBooks[i].getBookName() + "\t\t"
 							+ theBooks[i].getAuthorName() + "\t\t"
-							+ theBooks[i].getbookQuantityCopy() + "\t\t"
+							+ theBooks[i].getBookQuantityCopy() + "\t\t"
 							+ theBooks[i].getbookQuantity());
 		}
 	}
 
 	// Method 6
 	// To edit the book
-	public void upgradebookQuantity() {
+	public void upgradeBookQuantity() {
 		System.out.println("\t\t\t\tUPGRADE QUANTITY OF A BOOK\n");
 		System.out.println("Enter Serial No of Book");
 
@@ -140,8 +139,8 @@ public class Books {
 				// Display message
 				System.out.println("Enter No of Books to be Added:");
 				int addingQty = input.nextInt();
-				theBooks[i].setbookQuantity(theBooks[i].getbookQuantity() + addingQty);
-				theBooks[i].setbookQuantityCopy(theBooks[i].getbookQuantityCopy() + addingQty);
+				theBooks[i].setBookQuantity(theBooks[i].getbookQuantity() + addingQty);
+				theBooks[i].setBookQuantityCopy(theBooks[i].getBookQuantityCopy() + addingQty);
 				return;
 			}
 		}
@@ -154,7 +153,6 @@ public class Books {
 		System.out.println(
 				"----------------------------------------------------------------------------------------------------------");
 		System.out.println("Press 1 to Add new Book.");
-		System.out.println("Press 0 to Exit Application.");
 		System.out.println("Press 2 to Upgrade Quantity of a Book.");
 		System.out.println("Press 3 to Search a Book.");
 		System.out.println("Press 4 to Show All Books.");
@@ -162,6 +160,7 @@ public class Books {
 		System.out.println("Press 6 to Show All Registered Students.");
 		System.out.println("Press 7 to Check Out Book. ");
 		System.out.println("Press 8 to Check In Book");
+		System.out.println("Press 0 to Exit Application.");
 		System.out.println(
 				"-------------------------------------------------------------------------------------------------------");
 	}
@@ -169,7 +168,7 @@ public class Books {
 	public int isAvailable(int sNo) {
 		for (int i = 0; i < count; i++) {
 			if (sNo == theBooks[i].getSerialNo()) {
-				if (theBooks[i].getbookQuantityCopy() > 0) {
+				if (theBooks[i].getBookQuantityCopy() > 0) {
 					System.out.println("Book is Available.");
 					return i;
 				}
@@ -191,7 +190,7 @@ public class Books {
 		int bookIndex = isAvailable(sNo);
 
 		if (bookIndex != -1) {
-			theBooks[bookIndex].setbookQuantityCopy(theBooks[bookIndex].getbookQuantityCopy() - 1);
+			theBooks[bookIndex].setBookQuantityCopy(theBooks[bookIndex].getBookQuantityCopy() - 1);
 			return theBooks[bookIndex];
 		}
 		return null;
@@ -202,7 +201,7 @@ public class Books {
 	public void checkInBook(Book b) {
 		for (int i = 0; i < count; i++) {
 			if (b.equals(theBooks[i])) {
-				theBooks[i].setbookQuantityCopy(theBooks[i].getbookQuantityCopy() + 1);
+				theBooks[i].setBookQuantityCopy(theBooks[i].getBookQuantityCopy() + 1);
 				return;
 			}
 		}
