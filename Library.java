@@ -72,13 +72,13 @@ public class Library {
                 case 6:
                     students.showAllStudents();
                     break;
-                case 7:
+                case 9:
                     students.checkOutBook(books);
                     break;
-                case 8:
+                case 10:
                     students.checkInBook(books);
                     break;
-                case 9:
+                case 11:
                     System.out.println("Enter admin username: ");
                     if (input.next().equals("user")) {
                         System.out.println("Enter admin password: ");
@@ -98,12 +98,12 @@ public class Library {
                     }
 
                     break;
-                case 10:
+                case 7:
                     System.out.println("Enter student's Registration Number:");
                     String regNum = input.next();
                     students.showBorrowedBooksByStudent(regNum);
                     break;
-                case 11:
+                case 8:
                     students.showStudentsWithBorrowedBooks();
                     break;
                 default:
