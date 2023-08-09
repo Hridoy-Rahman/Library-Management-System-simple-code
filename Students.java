@@ -15,7 +15,7 @@ public class Students {
 
     public void addStudent(Student student) {
         students.add(student);
-        System.out.println("Register successfull");
+        System.out.println("Registration successful");
     }
 
     public void showAllStudents() {
@@ -27,7 +27,80 @@ public class Students {
         }
     }
 
+    public Student findStudentByRegNum(String regNum) {
+        for (Student student : students) {
+            if (student.getRegNum().equals(regNum)) {
+                return student;
+            }
+        }
+        return null;
+    }
+
+    public void showStudentsWithBorrowedBooks() {
+        System.out.println("\t\t\t\tSTUDENTS WITH BORROWED BOOKS\n");
     
+        boolean found = false;
+    
+        for (Student student : students) {
+            Book[] borrowedBooks = student.getBorrowedBooks();
+            int borrowedBookCount = 0;
+    
+            for (Book book : borrowedBooks) {
+                if (book != null) {
+                    borrowedBookCount++;
+                }
+            }
+    
+            if (borrowedBookCount > 0) {
+                System.out.println("Student Name: " + student.getName());
+                System.out.println("Registration Number: " + student.getRegNum());
+                System.out.println("Number of Borrowed Books: " + borrowedBookCount);
+                System.out.println("Borrowed Books:");
+    
+                for (Book book : borrowedBooks) {
+                    if (book != null) {
+                        System.out.println("Book Serial No: " + book.getSerialNo());
+                        System.out.println("Book Name: " + book.getBookName());
+                        System.out.println("Author Name: " + book.getAuthorName());
+                        System.out.println("------------------------");
+                    }
+                }
+                System.out.println("\n");
+                found = true;
+            }
+        }
+    
+        if (!found) {
+            System.out.println("No students have borrowed books.");
+        }
+    }
+
+    public void showBorrowedBooksByStudent(String regNum) {
+        Student student = findStudentByRegNum(regNum);
+
+        if (student != null) {
+            System.out.println("Student Name: " + student.getName());
+            System.out.println("Registration Number: " + student.getRegNum());
+            System.out.println("Borrowed Books:");
+
+            Book[] borrowedBooks = student.getBorrowedBooks();
+            if (borrowedBooks.length > 0) {
+                for (Book book : borrowedBooks) {
+                    if (book != null) {
+                        System.out.println("Book Serial No: " + book.getSerialNo());
+                        System.out.println("Book Name: " + book.getBookName());
+                        System.out.println("Author Name: " + book.getAuthorName());
+                        System.out.println("------------------------");
+                    }
+                }
+            } else {
+                System.out.println("This student has not borrowed any books.");
+            }
+        } else {
+            System.out.println("No student found with the provided registration number.");
+        }
+    }
+
     public void checkOutBook(Books books) {
         System.out.println("Enter Registration Number of Student:");
         String regNum = input.nextLine();
@@ -51,6 +124,7 @@ public class Students {
             }
         }
     }
+
     public void checkInBook(Books books) {
         System.out.println("Enter Registration Number of Student:");
         String regNum = input.nextLine();
@@ -79,14 +153,5 @@ public class Students {
         } else {
             System.out.println("No student found with the provided registration number.");
         }
-    }
-
-    private Student findStudentByRegNum(String regNum) {
-        for (Student student : students) {
-            if (student.getRegNum().equals(regNum)) {
-                return student;
-            }
-        }
-        return null;
     }
 }

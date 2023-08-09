@@ -23,31 +23,29 @@ public class Library {
                     System.out.println("Enter admin username: ");
                     if (input.next().equals("user")) {
                         System.out.println("Enter admin password: ");
-                        if (input.nextInt() == 123456) {
+                        if (input.nextInt() == 1234) {
                             Book book = new Book();
                             books.addBook(book);
                             break;
                         }
-                    }
-                    else{
+                    } else {
                         System.out.println("Invalid  admin username or password: ");
                         break;
                     }
                 case 2:
-                    
+
                     System.out.println("Enter admin username: ");
                     if (input.next().equals("user")) {
                         System.out.println("Enter admin password: ");
-                        if (input.nextInt() == 123456) {
+                        if (input.nextInt() == 1234) {
                             books.upgradeBookQuantity();
                             break;
                         }
-                    }
-                     else{
+                    } else {
                         System.out.println("Invalid  admin username or password: ");
                         break;
                     }
-                
+
                 case 3:
                     System.out.println("Press 1 to Search with Book Serial No.");
                     System.out.println("Press 2 to Search with Book's Author Name.");
@@ -79,6 +77,34 @@ public class Library {
                     break;
                 case 8:
                     students.checkInBook(books);
+                    break;
+                case 9:
+                    System.out.println("Enter admin username: ");
+                    if (input.next().equals("user")) {
+                        System.out.println("Enter admin password: ");
+                        if (input.nextInt() == 1234) {
+                            input.nextLine();
+                            System.out.println("Enter Student Registration Number:");
+                            String regNum = input.nextLine();
+                            Student foundStudent = students.findStudentByRegNum(regNum);
+                            if (foundStudent != null) {
+                                System.out.println("Student found:");
+                                System.out.println("Name: " + foundStudent.getName());
+                                System.out.println("Registration Number: " + foundStudent.getRegNum());
+                            } else {
+                                System.out.println("No student found with the provided registration number.");
+                            }
+                        }
+                    }
+
+                    break;
+                case 10:
+                    System.out.println("Enter student's Registration Number:");
+                    String regNum = input.next();
+                    students.showBorrowedBooksByStudent(regNum);
+                    break;
+                case 11:
+                    students.showStudentsWithBorrowedBooks();
                     break;
                 default:
                     System.out.println("Program Stop. Enter a value between 0 and 8.");

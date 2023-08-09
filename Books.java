@@ -159,6 +159,9 @@ public class Books {
 		System.out.println("Press 6 to Show All Registered Students.");
 		System.out.println("Press 7 to Check Out Book. ");
 		System.out.println("Press 8 to Check In Book");
+		System.out.println("Press 9 to Search Student");
+		System.out.println("Press 10 to Search Student who borrowed books");
+		System.out.println("Press 11 to Show all the Student who borrowed books");
 		System.out.println("Press 0 to Exit Application.");
 		System.out.println(
 				"-------------------------------------------------------------------------------------------------------");
