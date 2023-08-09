@@ -15,6 +15,7 @@ public class Students {
 
     public void addStudent(Student student) {
         students.add(student);
+        System.out.println("Register successfull");
     }
 
     public void showAllStudents() {
