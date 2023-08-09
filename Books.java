@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 public class Books {
 
-	// Class data members
+
 	private Book theBooks[];
 	private int count;
 	private Scanner input;
@@ -33,7 +33,7 @@ public class Books {
 		return 1;
 	}
 
-	// Method 2
+
 	// To add book
 	public void addBook(Book b) {
 		for (int i = 0; i < count; i++) {
@@ -49,7 +49,7 @@ public class Books {
 		}
 	}
 
-	// Method 3
+
 	// To search Book by serial number
 	public void searchBySno() {
 		System.out.println("\t\t\t\tSEARCH BY SERIAL NUMBER\n");
@@ -76,7 +76,7 @@ public class Books {
 			System.out.println("No Book for Serial No " + sNo + " Found.");
 	}
 
-	// Method 4
+
 	// To search author by name
 	public void searchByAuthorName() {
 		System.out.println("\t\t\t\tSEARCH BY AUTHOR'S NAME");
@@ -110,23 +110,22 @@ public class Books {
 			System.out.println("No Books of " + authorName + " Found.");
 	}
 
-	// Method 5
+
 	// To display all books
 	public void showAllBooks() {
 		System.out.println("\t\t\t\tSHOWING ALL BOOKS\n");
-		System.out.println("S.No\t\tName\t\tAuthor\t\tAvailable Qty\t\tTotal Qty");
+		System.out.println("S.No\t\tName\t\t\t\tAuthor\t\t\t\tAvailable Qty\t\t\t\tTotal Qty");
 
 		for (int i = 0; i < count; i++) {
 			System.out.println(
 					theBooks[i].getSerialNo() + "\t\t"
-							+ theBooks[i].getBookName() + "\t\t"
-							+ theBooks[i].getAuthorName() + "\t\t"
-							+ theBooks[i].getBookQuantityCopy() + "\t\t"
+							+ theBooks[i].getBookName() + "\t\t\t\t"
+							+ theBooks[i].getAuthorName() + "\t\t\t\t"
+							+ theBooks[i].getBookQuantityCopy() + "\t\t\t\t"
 							+ theBooks[i].getbookQuantity());
 		}
 	}
 
-	// Method 6
 	// To edit the book
 	public void upgradeBookQuantity() {
 		System.out.println("\t\t\t\tUPGRADE QUANTITY OF A BOOK\n");
@@ -141,12 +140,12 @@ public class Books {
 				int addingQty = input.nextInt();
 				theBooks[i].setBookQuantity(theBooks[i].getbookQuantity() + addingQty);
 				theBooks[i].setBookQuantityCopy(theBooks[i].getBookQuantityCopy() + addingQty);
+				System.out.println("Book upgrade successfull");
 				return;
 			}
 		}
 	}
 
-	// Method 7
 	// To create menu
 	public void dispMenu() {
 		// Displaying menu
@@ -181,7 +180,7 @@ public class Books {
 		return -1;
 	}
 
-	// Method 9
+
 	// To remove the Book from the library
 	public Book checkOutBook() {
 		System.out.println("Enter Serial No of Book to be Checked Out.");
@@ -196,7 +195,6 @@ public class Books {
 		return null;
 	}
 
-	// Method 10
 	// To add the Book to the Library
 	public void checkInBook(Book b) {
 		for (int i = 0; i < count; i++) {

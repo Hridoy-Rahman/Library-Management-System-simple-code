@@ -20,12 +20,34 @@ public class Library {
 
             switch (choice) {
                 case 1:
-                    Book book = new Book();
-                    books.addBook(book);
-                    break;
+                    System.out.println("Enter admin username: ");
+                    if (input.next().equals("user")) {
+                        System.out.println("Enter admin password: ");
+                        if (input.nextInt() == 123456) {
+                            Book book = new Book();
+                            books.addBook(book);
+                            break;
+                        }
+                    }
+                    else{
+                        System.out.println("Invalid  admin username or password: ");
+                        break;
+                    }
                 case 2:
-                    books.upgradeBookQuantity();
-                    break;
+                    
+                    System.out.println("Enter admin username: ");
+                    if (input.next().equals("user")) {
+                        System.out.println("Enter admin password: ");
+                        if (input.nextInt() == 123456) {
+                            books.upgradeBookQuantity();
+                            break;
+                        }
+                    }
+                     else{
+                        System.out.println("Invalid  admin username or password: ");
+                        break;
+                    }
+                
                 case 3:
                     System.out.println("Press 1 to Search with Book Serial No.");
                     System.out.println("Press 2 to Search with Book's Author Name.");

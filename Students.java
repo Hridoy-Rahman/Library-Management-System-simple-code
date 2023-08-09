@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+import java.util.Calendar;
+import java.util.Date;
 
 public class Students {
     private List<Student> students;
@@ -24,6 +26,7 @@ public class Students {
         }
     }
 
+    
     public void checkOutBook(Books books) {
         System.out.println("Enter Registration Number of Student:");
         String regNum = input.nextLine();
@@ -35,16 +38,18 @@ public class Students {
                 Book book = books.checkOutBook();
                 if (book != null) {
                     student.borrowBook(book);
+                    Date currentDate = new Date();
+                    Calendar returnDate = Calendar.getInstance();
+                    returnDate.setTime(currentDate);
+                    returnDate.add(Calendar.DAY_OF_MONTH, 7);
                     System.out.println("Book checked out successfully.");
+                    System.out.println("Return Date: " + returnDate.getTime());
                 }
             } else {
-                System.out.println("The student has reached the maximum limit of borrowed books.");
+                System.out.println("The student has reached the maximum limit of borrowed books");
             }
-        } else {
-            System.out.println("No student found with the provided registration number.");
         }
     }
-
     public void checkInBook(Books books) {
         System.out.println("Enter Registration Number of Student:");
         String regNum = input.nextLine();
